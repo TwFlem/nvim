@@ -1,7 +1,3 @@
--- TODO: fix restart and run last so they can be run successfully from any buffer after successfully runnin a session once
--- TODO: fix list break points
--- TODO: clean up what we see with the DAP ui
--- TODO: fix/setup fonts for DAP ui
 local initDap = function ()
   local dap = require('dap')
   vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc ='[D]AP: Toggle [B]reakpoint' })
@@ -15,8 +11,7 @@ local initDap = function ()
 
   vim.keymap.set('n', '<leader>dc', dap.continue, { desc ='[D]AP: [C]ontinue' })
   vim.keymap.set('n', '<leader>dC', dap.reverse_continue, { desc ='[D]AP: Reverse [C]ontinue' })
-  vim.keymap.set('n', '<leader>dL', dap.run_last, { desc ='[D]AP: Run [L]ast' })
-  vim.keymap.set('n', '<leader>dR', dap.restart, { desc ='[D]AP: [R]estart' })
+  vim.keymap.set('n', '<leader>dR', function() dap.restart(nil, {}) end, { desc ='[D]AP: [R]estart' })
   vim.keymap.set('n', '<leader>dK', dap.terminate, { desc ='[D]AP: [K]ill Session' })
 
   vim.keymap.set('n', '<leader>dP', dap.repl.toggle, { desc ='[D]AP: Toggle Re[P]l' })
