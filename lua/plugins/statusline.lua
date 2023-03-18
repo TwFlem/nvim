@@ -3,8 +3,8 @@ return {
       'nvim-lualine/lualine.nvim',
       opts = {
         options = {
-          icons_enabled = false,
-          theme = 'onedark',
+          icons_enabled = true,
+          theme = 'tokyonight',
           component_separators = '|',
           section_separators = '',
         },

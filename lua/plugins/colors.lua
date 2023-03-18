@@ -1,9 +1,9 @@
 return {
     { -- Theme inspired by Atom
-      'navarasu/onedark.nvim',
+      'folke/tokyonight.nvim',
       priority = 1000,
       config = function()
-        vim.cmd.colorscheme 'onedark'
+        vim.cmd.colorscheme 'tokyonight-moon'
       end,
     },
 }
