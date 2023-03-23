@@ -11,3 +11,4 @@ This setup leverages [NerdFonts](https://github.com/ryanoasis/nerd-fonts/tree/v2
 ## Important setups
 
 [Telescope](https://github.com/nvim-telescope/telescope.nvim#getting-started)
+[Mason](https://github.com/williamboman/mason.nvim#requirements) AND install all the things
