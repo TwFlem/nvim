@@ -78,6 +78,11 @@ require("catppuccin").setup({
         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
     },
 })
+require('lualine').setup {
+    options = {
+        theme = "catppuccin"
+    }
+}
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 vim.cmd.colorscheme "catppuccin-mocha"
