@@ -60,8 +60,27 @@ vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+-- colorscheme
+require("catppuccin").setup({
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
+    background = { -- :h background
+        light = "latte",
+        dark = "mocha",
+    },
+    term_colors = false,
+    integrations = {
+        cmp = true,
+        gitsigns = true,
+        nvimtree = true,
+        telescope = true,
+        harpoon = true,
+        mason = true,
+        -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+    },
+})
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+vim.cmd.colorscheme "catppuccin-mocha"
 
 -- Autowrite to automatically save before executing some commands
 vim.o.autowrite = true
@@ -70,6 +89,11 @@ vim.o.autowrite = true
 vim.o.relativenumber = true
 
 -- [[ Basic Keymaps ]]
+-- Better nav
+vim.keymap.set('n', '<C-h>', '<C-W>h', { desc = 'Focus window left' })
+vim.keymap.set('n', '<C-j>', '<C-W>j', { desc = 'Focus window down' })
+vim.keymap.set('n', '<C-k>', '<C-W>k', { desc = 'Focus window up' })
+vim.keymap.set('n', '<C-l>', '<C-W>l', { desc = 'Focus window right' })
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
