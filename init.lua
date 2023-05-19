@@ -377,6 +377,8 @@ cmp.setup {
   },
 }
 
+require('debug.config')
+
 local function isModuleAvailable(name)
   if package.loaded[name] then
     return true

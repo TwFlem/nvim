@@ -44,21 +44,6 @@ end
 local initGoDap = function()
   local goDap = require('dap-go')
   vim.keymap.set('n', '<leader>dgot', goDap.debug_test, { desc = '[D]AP: Debug [G][O] [T]est' })
-  goDap.setup {
-    dap_configurations = {
-      {
-        -- Must be "go" or it will be ignored by the plugin
-        type = "go",
-        name = "Debug",
-        request = "launch",
-        program = "${file}"
-        -- env = {
-        --   EXAMPLE = "example"
-        -- }
-        -- args = get_arguments
-      },
-    },
-  }
 end
 local initDapUi = function()
   local dap = require('dap')
