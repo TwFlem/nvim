@@ -1,22 +1,3 @@
-local function get_arguments()
-  local co = coroutine.running()
-  if co then
-    return coroutine.create(function()
-      local args = {}
-      vim.ui.input({ prompt = "Args: " }, function(input)
-        args = vim.split(input or "", " ")
-      end)
-      coroutine.resume(co, args)
-    end)
-  else
-    local args = {}
-    vim.ui.input({ prompt = "Args: " }, function(input)
-      args = vim.split(input or "", " ")
-    end)
-    return args
-  end
-end
-
 local initDap   = function()
   local dap = require('dap')
   vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = '[D]AP: Toggle [B]reakpoint' })
