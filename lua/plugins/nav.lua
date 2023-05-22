@@ -5,7 +5,11 @@ local initHarpoon = function()
   vim.keymap.set('n', '<leader>a', function() require('harpoon.mark').add_file() end, { desc = 'Harpoon [A]dd File' })
   vim.keymap.set('n', '<leader>j', function() require('harpoon.ui').nav_next() end, { desc = 'Harpoon Nav Next' })
   vim.keymap.set('n', '<leader>f', function() require('harpoon.ui').nav_prev() end, { desc = 'Harpoon Nav Previous' })
-  vim.keymap.set('n', '<leader>h', function() require('harpoon.ui').toggle_quick_menu() end, { desc = '[H]arpoon Toggle Quick Menu' })
+  vim.keymap.set('n', '<leader>h', function() require('harpoon.ui').toggle_quick_menu() end,
+    { desc = '[H]arpoon Toggle Quick Menu' })
+end
+local initTodoComments = function()
+  vim.keymap.set('n', '<leader>sT', vim.cmd.TodoTelescope, { desc = '[S]earch [T]odos' })
 end
 return {
   -- "gc" to comment visual regions/lines
@@ -26,7 +30,6 @@ return {
       return vim.fn.executable 'make' == 1
     end,
   },
-
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -45,5 +48,10 @@ return {
   {
     'ThePrimeagen/harpoon',
     init = initHarpoon
-  }
+  },
+  {
+    'folke/todo-comments.nvim',
+    dependencies = { "nvim-lua/plenary.nvim" },
+    init = initTodoComments
+  },
 }
