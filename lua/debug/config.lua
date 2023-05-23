@@ -23,21 +23,23 @@ dap.configurations.rust = {
 }
 
 -- go
-dap.configurations.go = {
-	{
-		name = "Launch Project Generic",
-		type = "go",
-		request = "launch",
-		program = '${workspaceFolder}/main.go',
-		-- env = {
-		--         EXAMPLE: 'example',
-		-- }
+require('dap-go').setup({
+	dap_configurations = {
+		{
+			name = "Launch Project Generic",
+			type = "go",
+			request = "launch",
+			program = '${workspaceFolder}/main.go',
+			-- env = {
+			--         EXAMPLE: 'example',
+			-- }
+		},
+		{
+			name = "Launch Project With Args Generic",
+			type = "go",
+			request = "launch",
+			program = '${workspaceFolder}/main.go',
+			args = utils.get_args,
+		},
 	},
-	{
-		name = "Launch Project With Args Generic",
-		type = "go",
-		request = "launch",
-		program = '${workspaceFolder}/main.go',
-		args = utils.get_args,
-	},
-}
+})
