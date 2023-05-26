@@ -8,9 +8,6 @@ local initHarpoon = function()
   vim.keymap.set('n', '<leader>h', function() require('harpoon.ui').toggle_quick_menu() end,
     { desc = '[H]arpoon Toggle Quick Menu' })
 end
-local initTodoComments = function()
-  vim.keymap.set('n', '<leader>sT', vim.cmd.TodoTelescope, { desc = '[S]earch [T]odos' })
-end
 return {
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim',         opts = {} },
@@ -50,8 +47,16 @@ return {
     init = initHarpoon
   },
   {
-    'folke/todo-comments.nvim',
-    dependencies = { "nvim-lua/plenary.nvim" },
-    init = initTodoComments
+    "folke/todo-comments.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    cmd = { "TodoTelescope" },
+    config = true,
+    event = { "BufReadPost", "BufNewFile" },
+    keys = {
+      { "<leader>sT", "<cmd>TodoTelescope<cr>", desc = "[S]earch [T]odo" },
+    },
   },
 }
