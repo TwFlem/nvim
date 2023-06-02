@@ -169,6 +169,8 @@ require('nvim-treesitter.configs').setup {
     'rust',
     'proto',
     'dockerfile',
+    'python',
+    'c',
   },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
