@@ -43,3 +43,13 @@ require('dap-go').setup({
 		},
 	},
 })
+
+-- c
+dap.configurations.c = {
+	{
+		name = "Launch Project Generic",
+		type = "codelldb",
+		request = "launch",
+		program = '${workspaceFolder}/target/debug/${workspaceFolderBasename}',
+	}
+}
